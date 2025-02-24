@@ -1,0 +1,2 @@
+# Automate-Upstream-and-Downstream-Node-Assignment-for-Stormwater-Networks-in-QGIS
+Automatically assigns upstream (US_NODE_ID) and downstream (DS_NODE_ID) nodes to stormwater pipes in QGIS based on pit elevations. Identifies nearest pits at each pipe end, compares elevations, and assigns flow direction accordingly. Ideal for preparing datasets for InfoWorks ICM and other hydraulic modelling software.
