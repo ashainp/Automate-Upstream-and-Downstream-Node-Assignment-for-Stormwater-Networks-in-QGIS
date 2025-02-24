@@ -38,6 +38,29 @@ This PyQGIS script **automatically assigns upstream (US_NODE_ID) and downstream 
    - Identify nearest pits at both ends of each pipe.
    - Compare DEM elevations.
    - Assign **US_NODE_ID** (higher elevation pit) and **DS_NODE_ID** (lower elevation pit).
+### ✏ **Customisation**
+
+| **Parameter**        | **Description**                             | **Replace With**                        |
+|----------------------|---------------------------------------------|------------------------------------------|
+| `'Merged SW Lines'`  | Name of your **pipes** layer                 | Your pipes layer name                   |
+| `'Merged SW points'` | Name of your **pits** layer                  | Your pits layer name                    |
+| `'AssetID'`          | **Node ID** field in pits                    | Your node ID field                      |
+| `'DEM value1'`       | **Elevation** field in pits                  | Your elevation field name               |
+
+### 📝 **Example Output**
+
+| Pipe_ID | US_NODE_ID | DS_NODE_ID | Diameter | Material |
+|---------|-------------|-------------|----------|-----------|
+| 101     | P1          | P5          | 450 mm   | uPVC      |
+| 102     | P3          | P2          | 300 mm   | RC        |
+| 103     | P7          | P4          | 375 mm   | Steel     |
+
+### 🎯 **Why This Script is Useful**
+
+- 🔄 **Eliminates Manual Work**: Automatically assigns node directions for large networks.
+- ⚡ **Fast & Efficient**: Processes hundreds of pipes in seconds using spatial indexing.
+- 🌍 **DEM-Based Accuracy**: Ensures flow direction matches natural elevation differences.
+- 🏗 **Flood modelling software ready**: Output fields match InfoWorks ICM requirements for seamless imports.
 
 ---
 
@@ -96,26 +119,3 @@ for pipe in pipes_layer.getFeatures():
 pipes_layer.commitChanges()
 print("✅ Upstream and downstream node IDs assigned successfully.")
 
-### ✏ **Customisation**
-
-| **Parameter**        | **Description**                             | **Replace With**                        |
-|----------------------|---------------------------------------------|------------------------------------------|
-| `'Merged SW Lines'`  | Name of your **pipes** layer                 | Your pipes layer name                   |
-| `'Merged SW points'` | Name of your **pits** layer                  | Your pits layer name                    |
-| `'AssetID'`          | **Node ID** field in pits                    | Your node ID field                      |
-| `'DEM value1'`       | **Elevation** field in pits                  | Your elevation field name               |
-
-### 📝 **Example Output**
-
-| Pipe_ID | US_NODE_ID | DS_NODE_ID | Diameter | Material |
-|---------|-------------|-------------|----------|-----------|
-| 101     | P1          | P5          | 450 mm   | uPVC      |
-| 102     | P3          | P2          | 300 mm   | RC        |
-| 103     | P7          | P4          | 375 mm   | Steel     |
-
-### 🎯 **Why This Script is Useful**
-
-- 🔄 **Eliminates Manual Work**: Automatically assigns node directions for large networks.
-- ⚡ **Fast & Efficient**: Processes hundreds of pipes in seconds using spatial indexing.
-- 🌍 **DEM-Based Accuracy**: Ensures flow direction matches natural elevation differences.
-- 🏗 **Flood modelling software ready**: Output fields match InfoWorks ICM requirements for seamless imports.
